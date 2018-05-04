@@ -4,12 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class BookForm {
-    public TextField txtTitle; //txtFirst
-    public TextField txtAuthor; //txtLast
+public class CustomerForm {
+    public TextField txtFirst; //txtFirst
+    public TextField txtLast; //txtLast
     public Button btnNext; //btnNext
     public Button btnPrev; //btnPrev
     public TextField txtID; //txtID
+    public TextField txtSSN;
 
     View view = new View();
     Controller controller = new Controller();
@@ -34,16 +35,17 @@ public class BookForm {
 
     class View {
         void populateScreen(Customer customer) {
-            txtTitle.setText(customer.getTitle());
-            txtAuthor.setText(customer.getAuthor());
+            txtFirst.setText(customer.getFirst());
+            txtLast.setText(customer.getLast());
 
             txtID.setText("" + customer.getID());
         }
 
         Customer getCustomerFromScreen() {
             Customer c = new Customer();
-            c.setTitle(txtTitle.getText());
-            c.setAuthor(txtAuthor.getText());
+            c.setFirst(txtFirst.getText());
+            c.setLast(txtLast.getText());
+            c.setSSN(Integer.parseInt(txtID.getText()));
             c.setID(Integer.parseInt(txtID.getText()));
             return c;
         }
