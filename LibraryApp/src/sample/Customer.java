@@ -28,7 +28,8 @@ class Customer {
 
     public void loadCustomer(int id) {
         try {
-            Connection conn = DriverManager.getConnection("jdbc:sqlite:C:/LibraryDB/LibraryApp/CustomerDatabase");
+            String folder = System.getProperty("user.dir") + "\\LibraryApp\\";
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:" + folder + "CustomerDatabase");
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("SELECT first, last, SSN From Customers Where ID =" + id);
 
