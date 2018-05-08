@@ -31,7 +31,7 @@ class Customer {
             String folder = System.getProperty("user.dir") + "\\LibraryApp\\";
             Connection conn = DriverManager.getConnection("jdbc:sqlite:" + folder + "CustomerDatabase");
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT first, last, SSN From Customers Where ID =" + id);
+            ResultSet rs = statement.executeQuery("SELECT first, Last, SSN From Customers Where ID =" + id);
 
             if (rs.next()) { // there was a result
                 first = rs.getString("first");
